@@ -1,0 +1,460 @@
+AWSTemplateFormatVersion: 2010-09-09
+Metadata:
+  'AWS::CloudFormation::Designer':
+    d53fd0b5-91ae-4fab-a2b2-551bf841b52f:
+      size:
+        width: 1100
+        height: 830
+      position:
+        x: 20
+        'y': 8940
+      z: 1
+      embeds:
+        - 8603ec82-83be-4443-8628-7246c2b33bdf
+        - 7869fe73-7d69-4402-905b-baf1c745ebc5
+        - 8474ba02-b678-4a00-9a78-7112dc526936
+    efe2d47a-7e80-4620-8327-4c1ecad9a49a:
+      size:
+        width: 340
+        height: 380
+      position:
+        x: 600
+        'y': 9200
+      z: 4
+      parent: d88835be-7855-4d0b-8198-3da2237ad4c1
+      embeds:
+        - 0bffe9ad-e734-4ff0-850e-2af2ce226387
+    0bffe9ad-e734-4ff0-850e-2af2ce226387:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 770
+        'y': 9400
+      z: 5
+      parent: efe2d47a-7e80-4620-8327-4c1ecad9a49a
+      embeds: []
+      isassociatedwith:
+        - 5ded3e67-c7ff-4e91-ae57-e15aa39d7475
+    38ecee34-7db7-4119-a612-5248417449b1:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 660
+        'y': 9400
+      z: 4
+      parent: d88835be-7855-4d0b-8198-3da2237ad4c1
+      embeds: []
+      iscontainedinside:
+        - d53fd0b5-91ae-4fab-a2b2-551bf841b52f
+    15cc43a0-b72f-418b-b197-17a50e41f964:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 250
+        'y': 9380
+      z: 4
+      parent: 674280c2-c9f4-43ac-b941-50ec12eaef0a
+      embeds: []
+      iscontainedinside:
+        - d53fd0b5-91ae-4fab-a2b2-551bf841b52f
+    9c604160-c315-467c-b6aa-e94735af0291:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 330
+        'y': 8930
+      z: 0
+      embeds: []
+    d88835be-7855-4d0b-8198-3da2237ad4c1:
+      size:
+        width: 420
+        height: 510
+      position:
+        x: 540
+        'y': 9150
+      z: 3
+      parent: 8603ec82-83be-4443-8628-7246c2b33bdf
+      embeds:
+        - 38ecee34-7db7-4119-a612-5248417449b1
+        - efe2d47a-7e80-4620-8327-4c1ecad9a49a
+        - 5ded3e67-c7ff-4e91-ae57-e15aa39d7475
+    aff9a4a7-18b4-4c3b-a7b6-9cab4d05524b:
+      source:
+        id: d53fd0b5-91ae-4fab-a2b2-551bf841b52f
+      target:
+        id: 9c604160-c315-467c-b6aa-e94735af0291
+      z: 1
+    8603ec82-83be-4443-8628-7246c2b33bdf:
+      size:
+        width: 560
+        height: 610
+      position:
+        x: 500
+        'y': 9100
+      z: 2
+      parent: d53fd0b5-91ae-4fab-a2b2-551bf841b52f
+      embeds:
+        - 271f1af0-a986-4239-90df-642254455bd3
+        - e785892a-f95c-4a33-b00c-1c3704f34fb1
+        - d88835be-7855-4d0b-8198-3da2237ad4c1
+    271f1af0-a986-4239-90df-642254455bd3:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 990
+        'y': 9310
+      z: 3
+      parent: 8603ec82-83be-4443-8628-7246c2b33bdf
+      embeds: []
+    e785892a-f95c-4a33-b00c-1c3704f34fb1:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 990
+        'y': 9430
+      z: 3
+      parent: 8603ec82-83be-4443-8628-7246c2b33bdf
+      embeds: []
+    7869fe73-7d69-4402-905b-baf1c745ebc5:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 450
+        'y': 8990
+      z: 2
+      parent: d53fd0b5-91ae-4fab-a2b2-551bf841b52f
+      embeds: []
+      isassociatedwith:
+        - 9c604160-c315-467c-b6aa-e94735af0291
+      iscontainedinside:
+        - d88835be-7855-4d0b-8198-3da2237ad4c1
+      dependson:
+        - aff9a4a7-18b4-4c3b-a7b6-9cab4d05524b
+    5e58b142-fed7-477f-8ef9-080e009e4bb3:
+      source:
+        id: 8603ec82-83be-4443-8628-7246c2b33bdf
+      target:
+        id: efe2d47a-7e80-4620-8327-4c1ecad9a49a
+      z: 4
+    5ded3e67-c7ff-4e91-ae57-e15aa39d7475:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 730
+        'y': 9290
+      z: 4
+      parent: d88835be-7855-4d0b-8198-3da2237ad4c1
+      embeds: []
+      iscontainedinside:
+        - efe2d47a-7e80-4620-8327-4c1ecad9a49a
+        - efe2d47a-7e80-4620-8327-4c1ecad9a49a
+        - efe2d47a-7e80-4620-8327-4c1ecad9a49a
+        - efe2d47a-7e80-4620-8327-4c1ecad9a49a
+        - efe2d47a-7e80-4620-8327-4c1ecad9a49a
+        - efe2d47a-7e80-4620-8327-4c1ecad9a49a
+        - efe2d47a-7e80-4620-8327-4c1ecad9a49a
+        - efe2d47a-7e80-4620-8327-4c1ecad9a49a
+        - efe2d47a-7e80-4620-8327-4c1ecad9a49a
+        - efe2d47a-7e80-4620-8327-4c1ecad9a49a
+        - efe2d47a-7e80-4620-8327-4c1ecad9a49a
+    47d7d7ff-b00c-4591-9055-b8cb7dd0ed36:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 130
+        'y': 9400
+      z: 4
+      parent: 674280c2-c9f4-43ac-b941-50ec12eaef0a
+      embeds: []
+      isassociatedwith:
+        - 38ecee34-7db7-4119-a612-5248417449b1
+    8474ba02-b678-4a00-9a78-7112dc526936:
+      size:
+        width: 370
+        height: 390
+      position:
+        x: 40
+        'y': 9210
+      z: 2
+      parent: d53fd0b5-91ae-4fab-a2b2-551bf841b52f
+      embeds:
+        - 674280c2-c9f4-43ac-b941-50ec12eaef0a
+    674280c2-c9f4-43ac-b941-50ec12eaef0a:
+      size:
+        width: 280
+        height: 250
+      position:
+        x: 60
+        'y': 9280
+      z: 3
+      parent: 8474ba02-b678-4a00-9a78-7112dc526936
+      embeds:
+        - 15cc43a0-b72f-418b-b197-17a50e41f964
+        - 47d7d7ff-b00c-4591-9055-b8cb7dd0ed36
+Parameters:
+  DbName:
+    Description: Name of the database
+    Type: String
+    Default: XYZDB
+  DbMasterUsername:
+    Description: The database master user name
+    Type: String
+    Default: root
+  DbMasterPassword:
+    Description: The database master password
+    Type: String
+    Default: letmeinplease
+Resources:
+  XYZVPC:
+    Type: 'AWS::EC2::VPC'
+    Properties:
+      CidrBlock: 192.168.0.0/16
+      Tags:
+        - Key: Name
+          Value: XYZVPC
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: d53fd0b5-91ae-4fab-a2b2-551bf841b52f
+  PublicSubnet:
+    Type: 'AWS::EC2::Subnet'
+    Properties:
+      AvailabilityZone: us-east-1a
+      VpcId:
+        Ref: XYZVPC
+      MapPublicIpOnLaunch: true
+      CidrBlock: 192.168.10.0/24
+      Tags:
+        - Key: Name
+          Value: XYZPublicSubnet
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: efe2d47a-7e80-4620-8327-4c1ecad9a49a
+  PrivateSubnet:
+    Type: 'AWS::EC2::Subnet'
+    Properties:
+      AvailabilityZone: us-east-1b
+      VpcId:
+        Ref: XYZVPC
+      CidrBlock: 192.168.20.0/24
+      Tags:
+        - Key: Name
+          Value: XYZPrivateSubnet
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 8474ba02-b678-4a00-9a78-7112dc526936
+  DBSubnet:
+    Type: 'AWS::RDS::DBSubnetGroup'
+    Properties:
+      DBSubnetGroupDescription: PrivateSubnet for the DB
+      DBSubnetGroupName: XYZPrivateSubnet
+      SubnetIds:
+        - !Ref PrivateSubnet
+        - !Ref PublicSubnet
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 674280c2-c9f4-43ac-b941-50ec12eaef0a
+  WebServerEIP:
+    Type: 'AWS::EC2::EIP'
+    Properties:
+      InstanceId: !Ref WebServer
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 0bffe9ad-e734-4ff0-850e-2af2ce226387
+  PublicSG:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupDescription: HTTP and SSH ingress
+      VpcId: !Ref XYZVPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '80'
+          ToPort: '80'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: PublicSG
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 38ecee34-7db7-4119-a612-5248417449b1
+  PrivateSG:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupDescription: SSH ingress
+      VpcId: !Ref XYZVPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 3306
+          ToPort: 3306
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: PrivateSG
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 15cc43a0-b72f-418b-b197-17a50e41f964
+  XYZIG:
+    Type: 'AWS::EC2::InternetGateway'
+    Properties:
+      Tags:
+        - Key: Name
+          Value: XYZ_IG
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 9c604160-c315-467c-b6aa-e94735af0291
+  VPCGatewayAttachment:
+    Type: 'AWS::EC2::VPCGatewayAttachment'
+    Properties:
+      VpcId:
+        Ref: XYZVPC
+      InternetGatewayId:
+        Ref: XYZIG
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: aff9a4a7-18b4-4c3b-a7b6-9cab4d05524b
+  PublicRouteTable:
+    Type: 'AWS::EC2::RouteTable'
+    Properties:
+      VpcId:
+        Ref: XYZVPC
+      Tags:
+        - Key: Name
+          Value: XYZ_Public_RT
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: d88835be-7855-4d0b-8198-3da2237ad4c1
+  PublicNetworkACL:
+    Type: 'AWS::EC2::NetworkAcl'
+    Properties:
+      VpcId:
+        Ref: XYZVPC
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 8603ec82-83be-4443-8628-7246c2b33bdf
+  PublicNACLEntryEgress100:
+    Type: 'AWS::EC2::NetworkAclEntry'
+    Properties:
+      CidrBlock: 0.0.0.0/0
+      NetworkAclId:
+        Ref: PublicNetworkACL
+      Egress: 'true'
+      PortRange:
+        From: '0'
+        To: '65535'
+      Protocol: '-1'
+      RuleAction: Allow
+      RuleNumber: 100
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: e785892a-f95c-4a33-b00c-1c3704f34fb1
+  PublicNACLEntryIngress100:
+    Type: 'AWS::EC2::NetworkAclEntry'
+    Properties:
+      CidrBlock: 0.0.0.0/0
+      NetworkAclId:
+        Ref: PublicNetworkACL
+      Egress: 'false'
+      PortRange:
+        From: '0'
+        To: '65535'
+      Protocol: -1
+      RuleAction: Allow
+      RuleNumber: 100
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 271f1af0-a986-4239-90df-642254455bd3
+  PublicRoute:
+    Type: 'AWS::EC2::Route'
+    DependsOn:
+      - VPCGatewayAttachment
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref XYZIG
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 7869fe73-7d69-4402-905b-baf1c745ebc5
+  PublicSubnetRouteTableAssociation:
+    Type: 'AWS::EC2::SubnetRouteTableAssociation'
+    Properties:
+      SubnetId:
+        Ref: PublicSubnet
+      RouteTableId:
+        Ref: PublicRouteTable
+  PublicSubnetNetworkAclAssociation:
+    Type: 'AWS::EC2::SubnetNetworkAclAssociation'
+    Properties:
+      SubnetId:
+        Ref: PublicSubnet
+      NetworkAclId:
+        Ref: PublicNetworkACL
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 5e58b142-fed7-477f-8ef9-080e009e4bb3
+  WebServer:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      ImageId: ami-05fa00d4c63e32376
+      InstanceType: t2.micro
+      KeyName: XYZKey
+      NetworkInterfaces:
+        - GroupSet:
+            - Ref: PublicSG
+          AssociatePublicIpAddress: 'false'
+          DeviceIndex: '0'
+          DeleteOnTermination: 'true'
+        - SubnetId: !Ref PublicSubnet
+      Tags:
+        - Key: Name
+          Value: XYZWebServer
+      UserData:
+        'Fn::Base64': !Sub >
+          #!/bin/bash -xe
+
+          sudo yum update -y
+
+          sudo yum install httpd -y
+
+          sudo systemctl start httpd
+
+          sudo systemctl enable httpd
+
+          echo "<html><body><p><h1 align=center> This is XYZ Corporation's new
+          website, built by Zack Langford using CloudFormation on AWS
+          </h1></body></html>" > /var/www/html/index.html
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 5ded3e67-c7ff-4e91-ae57-e15aa39d7475
+  DatabaseServer:
+    Type: 'AWS::RDS::DBInstance'
+    Properties:
+      DBName: !Ref DbName
+      DBSubnetGroupName: !Ref DBSubnet
+      MasterUsername: !Ref DbMasterUsername
+      MasterUserPassword: !Ref DbMasterPassword
+      Engine: MySQL
+      DBInstanceClass: db.t2.micro
+      StorageType: gp2
+      PubliclyAccessible: false
+      AllocatedStorage: '20'
+      VPCSecurityGroups:
+        - !Ref PrivateSG
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 47d7d7ff-b00c-4591-9055-b8cb7dd0ed36
