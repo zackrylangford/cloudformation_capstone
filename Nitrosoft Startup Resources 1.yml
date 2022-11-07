@@ -2,7 +2,7 @@
 Description: Nitrosoft Resources
 Parameters:
   KeyName:
-    Description: Key Pair for EC2
+    Description: Key Pair for EC2 Instances
     Type: 'AWS::EC2::KeyPair::KeyName'
     
   subnet1:
