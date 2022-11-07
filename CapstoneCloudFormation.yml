@@ -5,42 +5,6 @@ Parameters:
   KeyName:
     Description: KeyPair for SSH into EC2
     Type: 'AWS::EC2::KeyPair:KeyName'
-## RDS Parameters
-  DBInstanceID:
-    Default: mydbinstance
-    Description: My database instance
-    Type: String
-    MinLength: '1'
-    MaxLength: '63'
-    AllowedPattern: '[a-zA-Z][a-zA-Z0-9]*'
-    ConstraintDescription: >-
-      Must begin with a letter and must not end with a hyphen or contain two
-      consecutive hyphens.
-  DBName:
-    Default: mydb
-    Description: My database
-    Type: String
-    MinLength: '1'
-    MaxLength: '64'
-    AllowedPattern: '[a-zA-Z][a-zA-Z0-9]*'
-    ConstraintDescription: Must begin with a letter and contain only alphanumeric characters.
-
-  DBUsername:
-    NoEcho: 'true'
-    Description: Username for MySQL database access
-    Type: String
-    MinLength: '1'
-    MaxLength: '16'
-    AllowedPattern: '[a-zA-Z][a-zA-Z0-9]*'
-    ConstraintDescription: must begin with a letter and contain only alphanumeric characters.
-  DBPassword:
-    NoEcho: 'true'
-    Description: Password MySQL database access
-    Type: String
-    MinLength: '8'
-    MaxLength: '41'
-    AllowedPattern: '[a-zA-Z0-9]*'
-    ConstraintDescription: must contain only alphanumeric characters.
 
 Resources:
   
@@ -156,63 +120,13 @@ Resources:
     Properties:
       RouteTableId: !Ref PublicRouteTable2
       DestinationCidrBlock: 0.0.0.0/0
-      GatewayId: !Ref internetgateway
+      GatewayId: !Ref internetgateway  
+  
 
-  NATGateway:
-    Type: AWS::EC2::NatGateway
-      Properties: 
-        ConnectivityType: private
-        SubnetId: DBSubnet1
-        Tags: 
-          - Tag
-  DBRouteTable1:
-    Type: AWS::EC2::RouteTable
-    Properties:
-      VpcId: VPC
-      Tags:
-        - Key: Name
-          Value: DBRT1
-  DBRouteTable1Association:
-    Type: AWS::EC2::SubnetRouteTableAssociation
-    Properties:
-      SubnetId: !Ref DBSubnet1
-      RouteTableId: DBRouteTable1
-  DB1Route:
-    Type: AWS::EC2::Route
-    DependsOn:
-      - NATGateway
-    Properties:
-      RouteTableId: !Ref DBRouteTable1
-      DestinationCidrBlock: 0.0.0.0/0
-      GatewayId: !Ref NATGateway
 
-  NATGateway2:
-    Type: AWS::EC2::NatGateway
-      Properties: 
-        ConnectivityType: private
-        SubnetId: DBSubnet2
-        Tags: 
-          - Tag
-  DBRouteTable2:
-    Type: AWS::EC2::RouteTable
-    Properties:
-      VpcId: VPC
-      Tags:
-        - Key: Name
-          Value: DBRT2
-  DBRouteTable2Association:
-    Type: AWS::EC2::SubnetRouteTableAssociation
-    Properties:
-      SubnetId: !Ref DBSubnet2
-      RouteTableId: DBRouteTable2
-  DB2Route:
-    Type: AWS::EC2::Route
-    DependsOn:
-      - NATGateway2
-    Properties:
-      RouteTableId: !Ref DBRouteTable2
-      DestinationCidrBlock: 0.0.0.0/0
-      GatewayId: !Ref NATGateway
+
+
+
 
 
 ### SECURITY GROUPS
@@ -220,14 +134,12 @@ Resources:
   BastionSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-    GroupDescription: Bastion Security Group
-    VpcId:
-      Ref: VPC
-    SecurityGroupIngress:
-    - IpProtocol: tcp
-      FromPort: '22'
-      ToPort: '22'
-      CidrIp: 0.0.0.0/0
+      GroupDescription: Bastion Security Group
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: '22'
+        ToPort: '22'
+        CidrIp: 0.0.0.0/0
 
   ELBSecurityGroup:
     Type: AWS::EC2::SecurityGroup
@@ -243,8 +155,6 @@ Resources:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: Allow for HTTP, HTTPS, and SSH 
-      VpcId: 
-        Ref: VPC
       SecurityGroupIngress:
       - IpProtocol: tcp
         FromPort: '80'
@@ -270,13 +180,11 @@ Resources:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: Private Ingress to allow webserver access
-      VpcId:
-        Ref: VPC
       SecurityGroupIngress:
       - IpProtocol: tcp
         FromPort: '3306'
         ToPort: '3306'
-        SourceSecurityGroupId: !Ref WebServerSecurityGroup
+        SourceSecurityGroupId: !Ref WebServerSecurityGroup.GroupId
       Tags:
         -
           Key: Name
@@ -319,7 +227,7 @@ Resources:
         - !Ref DBServerSecurityGroup
 
 
-## Wordpress base Instance 
+## Wordpress Initial Instance 
 
   WordpressInstance1:
     Type: AWS::EC2::Instance
@@ -343,8 +251,14 @@ Resources:
           systemctl start httpd
           systemctl enable httpd
           echo "<h1>Hello from webserver 1, us-east-1a</h1>" > /var/www/html/index.html
-
-
+  ElasticIP:
+    Type: AWS::EC2::EIP
+    Properties:
+      InstanceId: !Ref WordpressInstance1
+      Tags:
+        - 
+          Key: 'Name'
+          Value: 'Elastic IP for Webserver'
 
 ## EC2 Autoscaling and Wordpress installation
 
