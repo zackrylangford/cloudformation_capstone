@@ -8,7 +8,12 @@ Parameters:
 
 ### My Stuff
 
+
+
 Resources:
+
+### VPC
+
   VPC:
     Type: AWS::EC2::VPC
     Properties:
@@ -16,6 +21,8 @@ Resources:
       Tags:
         - Key: Name
           Value: Whiteboard-VPC
+
+### Subnets
 
   PrivateSubnet1:
     Type: AWS::EC2::Subnet
@@ -67,18 +74,20 @@ Resources:
         - Key: Name
           Value: Public-Web-Server-Subnet-2
 
+### InternetGateway
   internetgateway:
     Type: AWS::EC2::InternetGateway
     Properties:
       Tags:
       - Key: Name
-        Value: Internet Gateway
+        Value: WB Internet Gateway
   AttachGateway:
     Type: AWS::EC2::VPCGatewayAttachment
     Properties:
       VpcId: !Ref VPC
       InternetGatewayId: !Ref internetgateway
 
+### RouteTables
   PublicRouteTable1:
     Type: AWS::EC2::RouteTable
     Properties:
@@ -122,6 +131,94 @@ Resources:
       GatewayId: !Ref internetgateway  
 
 
+  BastionSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Bastion Security Group
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: '22'
+        ToPort: '22'
+        CidrIp: 0.0.0.0/0
+      Tags:
+        -
+          Key: Name
+          Value: Bastion-Security-Group
+
+  ELBSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: ELB Security Group
+      SecurityGroupIngress: 
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+      Tags:
+        -
+          Key: Name
+          Value: ELB-Security-Group
+
+
+
+
+
+### Security Groups
+  BastionSG:
+    Type: AWS::EC2::SecurityGroup
+    Properties: 
+      GroupDescription: Security Group for bastion instance 
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: BastionSG
+
+  ELBSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Security Group for Load Balancer 
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '80'
+          ToPort: '80'
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: Load-Balancer-SG
+
+  WebServerSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Security Group for Webservers
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '80'
+          ToPort: '80'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          SourceSecurityGroupName: !Ref BastionSG
+      Tags:
+        - Key: Name
+          Value: Webserver-SG
+
+  DBSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Security Group for RDS 
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '3306'
+          ToPort: '3306'
+          SourceSecurityGroupName: !Ref WebServerSecurityGroup
+      Tags:
+        - Key: Name
+          Value: DB-SG
 
 ### Stuff from sample template
 
