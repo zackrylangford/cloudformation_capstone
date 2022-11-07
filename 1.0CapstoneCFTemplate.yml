@@ -159,10 +159,6 @@ Resources:
           Key: Name
           Value: ELB-Security-Group
 
-
-
-
-
 ### Security Groups
   BastionSG:
     Type: AWS::EC2::SecurityGroup
